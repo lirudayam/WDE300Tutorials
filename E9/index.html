@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link href="style.css" rel="stylesheet" />
+        <title>HTML Tutorials</title>
+    </head>
+    <body>        
+		
+		<div class="traffic_light_container">
+			<div class="light" id="red_1"></div>
+			<div class="light" id="yellow_1"></div>
+			<div class="light" id="green_1"></div>
+		</div>
+		
+		<div class="traffic_light_container">
+			<div class="light" id="red_2"></div>
+			<div class="light" id="yellow_2"></div>
+			<div class="light" id="green_2"></div>
+		</div>
+		
+		<script>
+		$('#yellow_1').fadeTo(500, 0.2);
+		$('#green_1').fadeTo(500, 0.2);
+		$('#yellow_2').fadeTo(500, 0.2);
+		$('#green_2').fadeTo(500, 0.2);
+		
+		var aRed = {
+			"_1": true,
+			"_2": true
+		};
+		
+		function lightSwitch(sSuffix) {
+		
+			if(aRed[sSuffix] === true) {
+				// switch to green
+				$('#red' + sSuffix).delay(1300).fadeTo(500, 0.2);
+				$('#yellow' + sSuffix).fadeTo(500, 1).delay(800).fadeTo(500, 0.2);
+				$('#yellow' + sSuffix).promise().done(function () {
+					$('#green' + sSuffix).fadeTo(500, 1);
+				});
+				aRed[sSuffix] = false;
+			}
+			else {
+				// switch to red
+				$('#green' + sSuffix).fadeTo(500, 0.2);
+				$('#yellow' + sSuffix).delay(500).fadeTo(500, 1).delay(800).fadeTo(500, 0.2);
+				$('#yellow' + sSuffix).promise().done(function () {
+					$('#red' + sSuffix).fadeTo(500, 1);
+				});
+				aRed[sSuffix] = true;
+			}
+			
+		}
+		
+		$(document).keypress(function() {
+			if(Math.random() > 0.5) {
+				lightSwitch("_1");
+			}
+			else {
+				lightSwitch("_2");
+			};
+		});
+		</script>
+		
+    </body>
+</html>

@@ -1,0 +1,26 @@
+.traffic_light_container {
+	width: 200px;
+	height: 700px;
+	background-color: #000;
+	padding:20px;
+	margin: 50px auto;
+}
+
+.light {
+	width: 200px;
+	height: 200px;
+	border-radius: 50% 50%;
+}
+
+#red {
+	background-color: red;
+}
+
+#yellow {
+	background-color: yellow;
+	margin: 50px 0;
+}
+
+#green {
+	background-color: green;
+}

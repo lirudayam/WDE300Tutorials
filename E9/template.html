@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link href="style.css" rel="stylesheet" />
+        <title>HTML Tutorials</title>
+    </head>
+    <body>        
+		
+		<div class="traffic_light_container">
+			<div class="light" id="red"></div>
+			<div class="light" id="yellow"></div>
+			<div class="light" id="green"></div>
+		</div>
+		
+		<script>
+		$('#yellow').fadeTo(500, 0.2);
+		$('#green').fadeTo(500, 0.2);
+		var iRed = true;
+		
+		function lightSwitch() {
+		
+			if(iRed === true) {
+				// switch to green
+				$('#red').delay(1300).fadeTo(500, 0.2);
+				$('#yellow').fadeTo(500, 1).delay(800).fadeTo(500, 0.2);
+				$('#yellow').promise().done(function () {
+					$('#green').fadeTo(500, 1);
+				});
+				iRed = false;
+			}
+			else {
+				// switch to red
+				$('#green').fadeTo(500, 0.2);
+				$('#yellow').delay(500).fadeTo(500, 1).delay(800).fadeTo(500, 0.2);
+				$('#yellow').promise().done(function () {
+					$('#red').fadeTo(500, 1);
+				});
+				iRed = true;
+			}
+			
+		}
+		
+		$(document).keypress(function() {
+		  lightSwitch()
+		});
+		</script>
+		
+    </body>
+</html>
