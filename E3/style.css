@@ -1,0 +1,34 @@
+body {
+	font-family: Arial, sans-serif;
+	color: #666; /* dark grey */
+	padding: 30px;
+}
+
+h1, h2 {
+	padding: 5px;
+	color: blue;
+	background-color: #EEE;
+}
+
+p {
+	color: #999;
+	line-height: 160%;
+	font-size: 13px;
+}
+
+table, tr, td {
+	padding: 5px;
+}
+
+a {
+	color: blue;
+	font-size:13px;
+}
+
+a:hover {
+	color: green;
+}
+
+.red_subtitle {
+	color: red;
+}
